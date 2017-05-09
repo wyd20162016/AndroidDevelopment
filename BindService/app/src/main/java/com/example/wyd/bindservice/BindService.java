@@ -63,7 +63,15 @@ public class BindService extends Service {
             }
         }.start();
     }
-
+/**
+通过bindService()方法启动的Service并不会回调这个函数．并且他不会像startService()启动的方法一样重复绑定Service.
+    @Override
+    public int onStartCommand(Intent intent, int flags, int StartId)
+    {
+        System.out.print("Service is Started!\n");
+        return START_STICKY;
+    }
+*/
     //断开连接该service时，会回调该方法．
     @Override
     public boolean onUnbind(Intent intent)
